@@ -36,7 +36,7 @@ class CSVLink extends React.Component {
   /**
    * In IE11 this method will trigger the file download
    */
-  handleLegacy(event, data, headers, separator, filename, enclosingCharacter, uFEFF) {
+  handleLegacy(event, data, headers, separator, filename, uFEFF, enclosingCharacter) {
     // If this browser is IE 11, it does not support the `download` attribute
     if (window.navigator.msSaveOrOpenBlob) {
       // Stop the click propagation
@@ -102,7 +102,7 @@ class CSVLink extends React.Component {
         ref={link => (this.link = link)}
         target="_self"
         href={this.state.href}
-        onClick={this.handleClick(data, headers, separator, filename, enclosingCharacter, uFEFF)}
+        onClick={this.handleClick(data, headers, separator, filename, uFEFF, enclosingCharacter)}
       >
         {children}
       </a>
